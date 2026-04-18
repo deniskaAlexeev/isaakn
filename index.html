@@ -1,21 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" class="js-loading">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Isaak Nightingale | International Music Artist</title>
-    <meta name="description"
-        content="Official website of Isaak Nightingale, an international singer, songwriter, and former lead of Triangle Sun. Open for collaborations.">
+    <meta name="description" content="Official website of Isaak Nightingale, an international singer, songwriter, and former lead of Triangle Sun. Open for collaborations.">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
     <!-- Preloader -->
     <div id="preloader">
@@ -26,14 +21,18 @@
     <div class="cursor"></div>
     <div class="cursor-follower"></div>
 
+    <!-- Global Audio Player (Hidden) -->
+    <audio id="global-audio" preload="metadata"></audio>
+
     <!-- Header -->
     <header class="header">
         <div class="container header-container">
             <a href="#" class="logo">Isaak Nightingale<span>.</span></a>
             <nav class="nav">
                 <a href="#about" class="nav-link hover-link">About</a>
+                <a href="#albums" class="nav-link hover-link">Albums</a>
                 <a href="#music" class="nav-link hover-link">Music</a>
-                <a href="#collab" class="nav-link hover-link">Collaborations</a>
+                <a href="#videos" class="nav-link hover-link">Videos</a>
                 <a href="#contact" class="nav-link btn-header magnetic">Booking</a>
             </nav>
             <div class="menu-toggle">
@@ -57,9 +56,7 @@
                 </div>
                 <div class="hero-visual reveal-image">
                     <div class="image-wrapper">
-                        <!-- Path to be updated with actual generated image -->
-                        <img src="assets/images/hero_portrait.png" alt="Isaak Nightingale Portrait" class="parallax-img"
-                            id="hero-img">
+                        <img src="public/images/main.jpeg" alt="Isaak Nightingale Portrait" class="parallax-img" id="hero-img">
                     </div>
                     <div class="scrolling-text-vertical">
                         <span>ISAAK NIGHTINGALE • ISAAK NIGHTINGALE • </span>
@@ -73,20 +70,14 @@
             <div class="container about-container">
                 <div class="about-visual reveal-image">
                     <div class="image-wrapper">
-                        <!-- Path to be updated with actual generated image -->
-                        <img src="assets/images/artist_performance.png" alt="Isaak Nightingale performance"
-                            class="parallax-img" id="about-img">
+                        <img src="public/images/hero.jpeg" alt="Isaak Nightingale performance" class="parallax-img" id="about-img">
                     </div>
                     <div class="gold-accent-box"></div>
                 </div>
                 <div class="about-content">
                     <h2 class="section-title reveal-text">The Journey.</h2>
-                    <p class="reveal-text delay-1">As an international singer and songwriter, I create music that
-                        transcends borders. Performing and writing primarily in English, my sound is an atmospheric
-                        blend of modern pop, deep emotion, and stylish aesthetics.</p>
-                    <p class="reveal-text delay-2">Formerly the lead singer of the acclaimed group <strong
-                            class="gold-text">Triangle Sun</strong>, I have embarked on a profound solo journey,
-                        bringing a refined, premium musical experience to stages worldwide.</p>
+                    <p class="reveal-text delay-1">As an international singer and songwriter, I create music that transcends borders. Performing and writing primarily in English, my sound is an atmospheric blend of modern pop, deep emotion, and stylish aesthetics.</p>
+                    <p class="reveal-text delay-2">Formerly the lead singer of the acclaimed group <strong class="gold-text">Triangle Sun</strong>, I have embarked on a profound solo journey, bringing a refined, premium musical experience to stages worldwide.</p>
                     <div class="stats reveal-fade delay-3">
                         <div class="stat-item">
                             <span class="stat-number">ENG</span>
@@ -101,58 +92,150 @@
             </div>
         </section>
 
+        <!-- Albums Section (New) -->
+        <section id="albums" class="albums section-padding">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="section-title reveal-text">Discography.</h2>
+                    <p class="section-subtitle reveal-fade pt-4">Explore the full journey.</p>
+                </div>
+                <div class="album-grid mt-4">
+                    <a href="#" target="_blank" class="album-card reveal-fade magnetic-area">
+                        <div class="album-cover placeholder-cover"><h2>ALBUM I</h2></div>
+                        <div class="album-info-wrapper">
+                            <h3 class="album-name">Midnight Gold</h3>
+                            <p class="album-year">Listen on Spotify ↗</p>
+                        </div>
+                    </a>
+                    <a href="#" target="_blank" class="album-card reveal-fade delay-1 magnetic-area">
+                        <div class="album-cover placeholder-cover"><h2>ALBUM II</h2></div>
+                        <div class="album-info-wrapper">
+                            <h3 class="album-name">Echoes</h3>
+                            <p class="album-year">Listen on Apple Music ↗</p>
+                        </div>
+                    </a>
+                    <a href="#" target="_blank" class="album-card reveal-fade delay-2 magnetic-area">
+                        <div class="album-cover placeholder-cover"><h2>ALBUM III</h2></div>
+                        <div class="album-info-wrapper">
+                            <h3 class="album-name">Silent Sun</h3>
+                            <p class="album-year">Listen on Soundcloud ↗</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
         <!-- Music Section -->
         <section id="music" class="music section-padding light-bg">
             <div class="container">
                 <div class="section-header text-center">
                     <h2 class="section-title reveal-text">Selected Works.</h2>
-                    <p class="section-subtitle reveal-fade">A glimpse into the auditory universe.</p>
+                    <p class="section-subtitle reveal-fade pt-4">A glimpse into the auditory universe.</p>
                 </div>
-                <!-- Tracklist mockup -->
+                
                 <div class="tracklist reveal-fade">
-                    <div class="track-item magnetic-area">
+                    <div class="track-item magnetic-area" data-src="public/music/music1.mp3">
                         <div class="track-info">
                             <span class="track-num">01</span>
-                            <span class="track-name">Midnight Golden</span>
+                            <span class="track-name">Track One</span>
                         </div>
-                        <span class="track-duration">3:42</span>
-                        <div class="track-play">
-                            <div class="play-icon"></div>
+                        <div class="track-controls">
+                            <span class="track-duration">--:--</span>
+                            <div class="track-play">
+                                <div class="play-icon"></div>
+                                <div class="pause-icon"></div>
+                                <svg class="progress-ring" width="40" height="40">
+                                    <circle class="progress-ring__circle" stroke="var(--color-gold)" stroke-width="2" fill="transparent" r="18" cx="20" cy="20"/>
+                                </svg>
+                            </div>
                         </div>
                     </div>
-                    <div class="track-item magnetic-area">
+                    <div class="track-item magnetic-area" data-src="public/music/music2.mp3">
                         <div class="track-info">
                             <span class="track-num">02</span>
-                            <span class="track-name">Whispers of the Sun</span>
+                            <span class="track-name">Track Two</span>
                         </div>
-                        <span class="track-duration">4:15</span>
-                        <div class="track-play">
-                            <div class="play-icon"></div>
+                        <div class="track-controls">
+                            <span class="track-duration">--:--</span>
+                            <div class="track-play">
+                                <div class="play-icon"></div>
+                                <div class="pause-icon"></div>
+                                <svg class="progress-ring" width="40" height="40">
+                                    <circle class="progress-ring__circle" stroke="var(--color-gold)" stroke-width="2" fill="transparent" r="18" cx="20" cy="20"/>
+                                </svg>
+                            </div>
                         </div>
                     </div>
-                    <div class="track-item magnetic-area">
+                    <div class="track-item magnetic-area" data-src="public/music/music3.mp3">
                         <div class="track-info">
                             <span class="track-num">03</span>
-                            <span class="track-name">Echoes in English</span>
+                            <span class="track-name">Track Three</span>
                         </div>
-                        <span class="track-duration">3:58</span>
-                        <div class="track-play">
-                            <div class="play-icon"></div>
+                        <div class="track-controls">
+                            <span class="track-duration">--:--</span>
+                            <div class="track-play">
+                                <div class="play-icon"></div>
+                                <div class="pause-icon"></div>
+                                <svg class="progress-ring" width="40" height="40">
+                                    <circle class="progress-ring__circle" stroke="var(--color-gold)" stroke-width="2" fill="transparent" r="18" cx="20" cy="20"/>
+                                </svg>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Videos Section (New) -->
+        <section id="videos" class="videos section-padding dark-section">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="section-title reveal-text" style="color: #fff;">Visuals.</h2>
+                    <p class="section-subtitle reveal-fade pt-4" style="color: #999;">Live performances and music videos.</p>
+                </div>
+            </div>
+            
+            <div class="video-carousel reveal-fade mt-4">
+                <div class="video-carousel-item">
+                    <div class="video-wrapper">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/S_ALlrE1ps0?si=XDSHjd9RjM6t9uey" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="video-carousel-item">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/YQHsXMglC9A" title="YouTube video 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="video-carousel-item">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/hLQl3WQQoQ0" title="YouTube video 3" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="video-carousel-item">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/kJQP7kiw5Fk" title="YouTube video 4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="video-carousel-item">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/OPf0YbXqDm0" title="YouTube video 5" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container text-center pt-4 mt-4 reveal-fade">
+                <a href="https://www.youtube.com" target="_blank" class="btn btn-outline-light magnetic">Watch More on YouTube</a>
+            </div>
+        </section>
+
+
         <!-- Collaborations Section -->
         <section id="collab" class="collab section-padding text-center">
             <div class="container">
                 <div class="collab-content text-center">
                     <h2 class="section-title reveal-text">Open to Creation.</h2>
-                    <p class="collab-desc reveal-text delay-1">Art thrives on connection. I am actively seeking creative
-                        collaborations, exploring new projects, and blending sounds with visionary artists and producers
-                        globally.</p>
-                    <div class="reveal-fade delay-2 pt-4">
+                    <p class="collab-desc reveal-text delay-1">Art thrives on connection. I am actively seeking creative collaborations, exploring new projects, and blending sounds with visionary artists and producers globally.</p>
+                    <div class="reveal-fade delay-2 pt-4 mt-4">
                         <a href="#contact" class="btn btn-primary magnetic">Start a Project</a>
                     </div>
                 </div>
@@ -166,9 +249,8 @@
                     <h2 class="section-title">Get in Touch.</h2>
                     <p>For bookings, collaborations, and press inquiries, please use the form or reach out directly.</p>
                     <div class="contact-details">
-                        <a href="mailto:booking@isaaknightingale.com"
-                            class="contact-link hover-link">booking@isaaknightingale.com</a>
-                        <div class="social-links mt-4">
+                        <a href="mailto:booking@isaaknightingale.com" class="contact-link hover-link">booking@isaaknightingale.com</a>
+                        <div class="social-links mt-4 pt-4">
                             <a href="#" class="social-link magnetic">IG</a>
                             <a href="#" class="social-link magnetic">SP</a>
                             <a href="#" class="social-link magnetic">YT</a>
@@ -204,5 +286,4 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="js/main.js"></script>
 </body>
-
 </html>
