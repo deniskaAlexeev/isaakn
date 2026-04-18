@@ -11,27 +11,44 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, 1500);
 
+    // Safety timeout: if GSAP doesn't load or animations fail, hide preloader after 3 seconds anyway
+    const safetyTimeout = setTimeout(() => {
+        const preloader = document.getElementById('preloader');
+        if (preloader && preloader.style.display !== 'none') {
+            preloader.style.opacity = '0';
+            setTimeout(() => { preloader.style.display = 'none'; }, 500);
+            initHeroAnimations();
+        }
+    }, 4000);
+
     function initHeroAnimations() {
+        clearTimeout(safetyTimeout);
         // Remove FOUC hiding class
         document.documentElement.classList.remove('js-loading');
 
-        // Image reveal
         const wrappers = document.querySelectorAll('.image-wrapper');
         wrappers.forEach(wrap => wrap.classList.add('revealed'));
         
+        // Refresh GSAP bounds in case preloader shifted layout
+        if (window.ScrollTrigger) {
+            setTimeout(() => ScrollTrigger.refresh(), 200);
+        }
+        
         // Text reveals
-        gsap.fromTo(".hero-subtitle", 
-            { y: 30, opacity: 0 }, 
-            { y: 0, opacity: 1, duration: 1, ease: "power3.out" }
-        );
-        gsap.fromTo(".hero-title", 
-            { y: 50, opacity: 0 }, 
-            { y: 0, opacity: 1, duration: 1, delay: 0.2, ease: "power3.out" }
-        );
-        gsap.fromTo(".hero-actions", 
-            { y: 30, opacity: 0 }, 
-            { y: 0, opacity: 1, duration: 1, delay: 0.4, ease: "power3.out" }
-        );
+        if (window.gsap) {
+            gsap.fromTo(".hero-subtitle", 
+                { y: 30, opacity: 0 }, 
+                { y: 0, opacity: 1, duration: 1, ease: "power3.out" }
+            );
+            gsap.fromTo(".hero-title", 
+                { y: 50, opacity: 0 }, 
+                { y: 0, opacity: 1, duration: 1, delay: 0.2, ease: "power3.out" }
+            );
+            gsap.fromTo(".hero-actions", 
+                { y: 30, opacity: 0 }, 
+                { y: 0, opacity: 1, duration: 1, delay: 0.4, ease: "power3.out" }
+            );
+        }
     }
 
     // 2. Custom Cursor (Desktop only)
@@ -201,6 +218,21 @@ document.addEventListener('DOMContentLoaded', () => {
     // 7. Scroll Animations with GSAP ScrollTrigger
     gsap.registerPlugin(ScrollTrigger);
 
+    // Image reveal with scroll (fixes mobile invisible images)
+    const wrappers = document.querySelectorAll('.image-wrapper');
+    wrappers.forEach(wrap => {
+        if (!isTouchDevice) {
+            ScrollTrigger.create({
+                trigger: wrap,
+                start: "top 90%",
+                onEnter: () => wrap.classList.add('revealed')
+            });
+        } else {
+            // On mobile, just show them immediately or handle via simple reveal
+            wrap.classList.add('revealed');
+        }
+    });
+
     const textReveals = document.querySelectorAll('.reveal-text');
     textReveals.forEach(text => {
         gsap.fromTo(text, 
@@ -232,9 +264,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const parallaxImgs = document.querySelectorAll('.parallax-img');
     parallaxImgs.forEach(img => {
         gsap.fromTo(img, 
-            { yPercent: -15 },
+            { yPercent: -5 },
             {
-                yPercent: 15,
+                yPercent: 5,
                 ease: "none",
                 scrollTrigger: {
                     trigger: img.parentElement,

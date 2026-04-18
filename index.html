@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="js-loading">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +9,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?v=1.1">
+    <style>
+        /* Force visibility regardless of JS state */
+        .image-wrapper::after { display: none !important; opacity: 0 !important; }
+        .parallax-img { opacity: 1 !important; visibility: visible !important; display: block !important; }
+    </style>
 </head>
 <body>
     <!-- Preloader -->
@@ -55,8 +60,8 @@
                     </div>
                 </div>
                 <div class="hero-visual reveal-image">
-                    <div class="image-wrapper">
-                        <img src="public/images/main.jpeg" alt="Isaak Nightingale Portrait" class="parallax-img" id="hero-img">
+                    <div class="image-wrapper revealed">
+                        <img src="public/images/main.jpeg" alt="Isaak Nightingale Portrait" class="parallax-img" id="hero-img" loading="eager">
                     </div>
                     <div class="scrolling-text-vertical">
                         <span>ISAAK NIGHTINGALE • ISAAK NIGHTINGALE • </span>
@@ -69,8 +74,8 @@
         <section id="about" class="about section-padding">
             <div class="container about-container">
                 <div class="about-visual reveal-image">
-                    <div class="image-wrapper">
-                        <img src="public/images/hero.jpeg" alt="Isaak Nightingale performance" class="parallax-img" id="about-img">
+                    <div class="image-wrapper revealed">
+                        <img src="public/images/hero.jpeg" alt="Isaak Nightingale performance" class="parallax-img" id="about-img" loading="eager">
                     </div>
                     <div class="gold-accent-box"></div>
                 </div>
@@ -104,21 +109,21 @@
                         <div class="album-cover placeholder-cover"><h2>ALBUM I</h2></div>
                         <div class="album-info-wrapper">
                             <h3 class="album-name">Midnight Gold</h3>
-                            <p class="album-year">Listen on Spotify ↗</p>
+                            <p class="album-year">Listen on Spotify</p>
                         </div>
                     </a>
                     <a href="#" target="_blank" class="album-card reveal-fade delay-1 magnetic-area">
                         <div class="album-cover placeholder-cover"><h2>ALBUM II</h2></div>
                         <div class="album-info-wrapper">
                             <h3 class="album-name">Echoes</h3>
-                            <p class="album-year">Listen on Apple Music ↗</p>
+                            <p class="album-year">Listen on Apple Music</p>
                         </div>
                     </a>
                     <a href="#" target="_blank" class="album-card reveal-fade delay-2 magnetic-area">
                         <div class="album-cover placeholder-cover"><h2>ALBUM III</h2></div>
                         <div class="album-info-wrapper">
                             <h3 class="album-name">Silent Sun</h3>
-                            <p class="album-year">Listen on Soundcloud ↗</p>
+                            <p class="album-year">Listen on Soundcloud</p>
                         </div>
                     </a>
                 </div>
@@ -203,22 +208,22 @@
                 </div>
                 <div class="video-carousel-item">
                     <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/YQHsXMglC9A" title="YouTube video 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/TpXoY2H-Opg?si=e53f4P-LUfzPIaq7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
                 </div>
                 <div class="video-carousel-item">
                     <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/hLQl3WQQoQ0" title="YouTube video 3" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/_y51k6BMixM?si=egvAymOuaQNpTB_S" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
                 </div>
                 <div class="video-carousel-item">
                     <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/kJQP7kiw5Fk" title="YouTube video 4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/1RY8NOmMSIA?si=o09FSHfREpYGUpOr" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
                 </div>
                 <div class="video-carousel-item">
                     <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/OPf0YbXqDm0" title="YouTube video 5" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/yKtJWraIm0E?si=OM64mfiirYdf0Y63" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
@@ -284,6 +289,6 @@
     <!-- GSAP for smooth animations -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/main.js?v=1.1"></script>
 </body>
 </html>
